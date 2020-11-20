@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif; }
+
+.navbar {
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: space-between; }
+
+/*# sourceMappingURL=style.css.map */
