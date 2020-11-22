@@ -16,7 +16,7 @@ router.post('/signup', (req, res) => {
     const { username, password, email, name, lastName, phoneNumber } = req.body
 
     if (username.length === 0 || password.length === 0 || email.length === 0 || name.length === 0 || lastName.length === 0 || phoneNumber.length === 0) {
-        res.render('profile/signup', { errorMsg: 'Rellena todos los campos' })
+        res.render('/', { errorMsg: 'Rellena todos los campos' })
         return
     }
 

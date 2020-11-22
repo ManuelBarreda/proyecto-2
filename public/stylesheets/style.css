@@ -1,7 +1,11 @@
+body {
+  font-family: Quicksand; }
+
 img {
   width: 100%; }
 
 h1, h2, h3, h4 {
+  font-weight: bolder;
   margin: 30px auto; }
 
 a {
@@ -25,16 +29,23 @@ p {
   background-position-x: center;
   background-position-y: -250px;
   padding: 170px 0;
+  padding-bottom: 280px;
   margin-bottom: 20px; }
 
 .main-title {
+  font-family: Montserrat;
+  opacity: 0.8;
   position: relative;
   color: black;
-  top: 250px;
-  background-color: white;
+  top: 310px;
   text-align: center;
   font-size: 400px;
-  font-weight: 500px; }
+  font-weight: 500px;
+  font-weight: 10px;
+  background-color: turquoise; }
+
+.title-one {
+  letter-spacing: .3em; }
 
 .first-row {
   margin-top: 70px;
@@ -46,13 +57,14 @@ p {
 .button-first {
   margin: 50px auto;
   outline: none;
-  background-color: yellow;
+  background-color: #F8F9FA;
   width: 280px;
   height: 50px;
   font-size: larger;
   text-align: center;
   border: 1px solid;
-  line-height: 2.2; }
+  line-height: 2.2;
+  border-radius: 10% 0; }
 
 .second-row {
   margin-top: 70px; }
@@ -66,6 +78,9 @@ p {
 
 .third-container {
   margin-top: 80px; }
+
+.background-icons {
+  background-color: #F8F9FA; }
 
 .icon {
   margin-top: 40px;
