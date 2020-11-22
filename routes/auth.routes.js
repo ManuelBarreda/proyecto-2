@@ -42,6 +42,39 @@ router.post('/signup', (req, res) => {
 //LOGIN - GET
 router.get('/login', (req, res) => res.render('profile/login'))
 
+//LOGIN - POST
+router.post('/login', (req, res, next) => {
+
+    const { username, password } = req.body
+
+    if (username === "" || password === "") {
+        res.render("profile/login", { errorMsg: "Rellena todos los campos" })
+        return
+    }
+
+    User
+        .findOne({ username: username })
+        .then(theUser => {
+
+            if (!theUser) {
+                res.render("profile/login", { errorMsg: "Usuario no reconocido" })
+                return
+            }
+
+            if (!bcryptjs.compareSync(password, theUser.password)) {
+                res.render("profile/login", { errorMsg: "Contraseña incorrecta" })
+                return
+            }
+
+            req.session.currentUser = theUser               // inicio de sesión
+            res.render('profile/profile', { successMsg: '¡Bienvenid@,' + theUser.username + '!' })
+        })
+        .catch(err => console.log(err))
+})
+
+//SIGN OUT - GET
+router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("/")))
+
 //PROFILE
 router.get('/profile', (req, res) => res.render('profile/profile'))
 
@@ -55,10 +88,10 @@ router.get('/new-travel', (req, res) => res.render('travel/new-travel'))
 router.get('/travel-details', (req, res) => res.render('travel/travel-details'))
 
 
+/* ---------- RUTAS PROTEGIDAS DEBAJO DEL ROUTER.GET ---------- */
 // custom middleware for session check
 router.use((req, res, next) => req.session.currentUser ? next() : res.render('profile/login', { errorMsg: 'Zona restringida' }))
-
 // todas las rutas a continuación serán privadas
-router.get('/profile', (req, res) => res.render('profile', req.session.currentUser))
+router.get('/profile', (req, res) => res.render('profile/profile', req.session.currentUser))
 
 module.exports = router
