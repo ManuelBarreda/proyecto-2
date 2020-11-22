@@ -9,8 +9,7 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: true, // Mínimo una letra, un número y tener mínimo seis caracteres
-        match: /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$/
+        required: true,
     },
     email: {
         type: String,
@@ -29,8 +28,8 @@ const userSchema = new Schema({
     },
     phoneNumber: {
         type: Number,
-        required: true, // Todos estos formatos: (123) 456-7890 -- (123)456-7890 -- 123-456-7890 -- 123.456.7890 -- 1234567890 -- +31636363634
-        match: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+        required: true, // Todos estos formatos: (123) 456-7890 -- (123)456-7890 -- 123-456-7890 -- 123.456.7890 -- 1234567890 -- +31636363634 -- 677777777
+        match: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{3,6}$/im
     }
 }, {
     timestamps: true
