@@ -97,7 +97,7 @@ router.get('/profile', (req, res) => res.render('profile/profile', req.session.c
 
 //PROFILE
 router.get('/profile/:user_id', (req, res) => {
-    console.log("HOla")
+    
     const userId = req.params.user_id
     console.log(userId)
     User
