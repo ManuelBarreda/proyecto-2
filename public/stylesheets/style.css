@@ -6,7 +6,11 @@ img {
 
 h1, h2, h3 {
   font-weight: bold;
-  margin: 30px auto; }
+  margin: 30px 0; }
+
+h4 {
+  font-weight: bold;
+  margin-top: 20px; }
 
 a {
   text-decoration: none;
@@ -27,22 +31,21 @@ p {
   width: 100%;
   background-size: cover;
   background-position-x: center;
-  background-position-y: -250px;
+  background-position-y: -240px;
   padding: 170px 0;
   padding-bottom: 280px;
-  margin-bottom: 20px; }
+  margin: 120px auto 20px; }
 
 .main-title {
-  font-family: Montserrat;
+  font-family: "ADAM.CG PRO";
   opacity: 0.8;
   position: relative;
   color: black;
-  top: 310px;
+  top: -310px;
   text-align: center;
   font-size: 400px;
   font-weight: 500px;
-  font-weight: 10px;
-  background-color: turquoise; }
+  font-weight: 10px; }
 
 .title-one {
   letter-spacing: .2em; }
@@ -91,7 +94,11 @@ p {
 
 .user-image {
   width: 70%;
-  margin-bottom: 60px; }
+  margin-bottom: 60px;
+  border-radius: 10% 0; }
+
+.text-user strong {
+  font-weight: bold; }
 
 .footer-style {
   margin-top: 40px;
