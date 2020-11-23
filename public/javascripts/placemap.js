@@ -1,11 +1,34 @@
 let mapInstance, serviceInstance, rendererInstance
 
+
+
+// travelAPI = new APIHandler()
+
+// travelAPI
+
+//     .getTravelsList()
+//     .then(res => {
+//         let allInfo = res.data
+//         let originPrueba = ""
+//         let destinoPrueba = ""
+
+//         allInfo.forEach(elm => {
+//             originPrueba = elm.originCity
+//             destinoPrueba = elm.destinationCity
+//         });
+//         console.log(originPrueba)
+
+//     })
+
+
 function initMap() {
 
     drawMap()
     drawResult()
-
+    // getPlacesFromAPI() 
+    // drawPlaces(travels) 
 }
+
 
 function drawMap(){
 
@@ -34,4 +57,47 @@ function drawResult(route){
 }
 
 
-initMap()
+
+// function getPlacesFromAPI() {
+//     axios
+//         .get('/api/travel-details')
+//         .then(response => drawPlaces(response.data))
+//         .catch(err => console.log(err))
+// }
+
+
+initMap();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function drawPlaces(travels) {
+
+//     travels.forEach(elm => {
+
+//         let cityOrigin = elm.originCity
+//         let cityArrival = elm.destinationCity
+//     }),
+
+//     console.log(cityOrigin)
+// }
+        
+
+ 
+
+        // new google.maps.Marker({
+        //     map: mapInstance,
+        //     position,
+        //     title: elm.name
+        // })

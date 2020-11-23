@@ -84,7 +84,7 @@ router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("
 router.get('/all-travels', (req, res) => res.render('travel/all-travels'))
 
 //TRAVEL DETAIL
-router.get('/travel-details/:id', (req, res) => res.render('travel/travel-details'))
+router.get('/travel-details', (req, res) => res.render('travel/travel-details'))
 
 /* ------------- RUTAS PROTEGIDAS ------------- */
 // custom middleware for session check

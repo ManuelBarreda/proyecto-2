@@ -4,7 +4,7 @@ const router = express.Router()
 const Travel = require('./../models/travel.model')
 
 // Endpoints
-router.get('/travel-details', (req, res) => {
+router.get('/travels', (req, res) => {
 
     Travel
         .find()
