@@ -4,8 +4,8 @@ body {
 img {
   width: 100%; }
 
-h1, h2, h3, h4 {
-  font-weight: bolder;
+h1, h2, h3 {
+  font-weight: bold;
   margin: 30px auto; }
 
 a {
@@ -45,7 +45,7 @@ p {
   background-color: turquoise; }
 
 .title-one {
-  letter-spacing: .3em; }
+  letter-spacing: .2em; }
 
 .first-row {
   margin-top: 70px;
@@ -54,7 +54,7 @@ p {
 .first-text {
   padding: 50px 0; }
 
-.button-first {
+.button {
   margin: 50px auto;
   outline: none;
   background-color: #F8F9FA;
@@ -85,6 +85,13 @@ p {
 .icon {
   margin-top: 40px;
   width: 50%; }
+
+.login {
+  margin: 80px auto 150px; }
+
+.user-image {
+  width: 70%;
+  margin-bottom: 60px; }
 
 .footer-style {
   margin-top: 40px;
