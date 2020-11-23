@@ -76,7 +76,14 @@ router.post('/login', (req, res, next) => {
 router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("/")))
 
 //PROFILE
-router.get('/profile', (req, res) => res.render('profile/profile'))
+router.get('/profile/:id', (req, res) => {
+    const userId = req.params.id
+    User
+        .findById(userId)
+        .then(theUser => res.render('profile/profile', theUser))
+        .catch(err => console.log(err))
+    
+})
 
 //ALL TRAVEL
 router.get('/all-travels', (req, res) => res.render('travel/all-travels'))
