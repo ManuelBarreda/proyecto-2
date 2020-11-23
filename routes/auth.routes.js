@@ -16,7 +16,7 @@ router.post('/signup', (req, res) => {
     const { username, password, email, name, lastName, phoneNumber } = req.body
 
     if (username.length === 0 || password.length === 0 || email.length === 0 || name.length === 0 || lastName.length === 0 || phoneNumber.length === 0) {
-        res.render('/', { errorMsg: 'Rellena todos los campos' })
+        res.render('profile/signup', { errorMsg: 'Rellena todos los campos' })
         return
     }
 
@@ -33,8 +33,11 @@ router.post('/signup', (req, res) => {
 
             User
                 .create({ username, password: hashPass, email, name, lastName, phoneNumber })
-                // console.log(User)
-                .then(() => res.render('profile/profile', { successMsg: 'Registro completado' }))
+                // console.log(User) 
+                .then((newUser) => {
+                    req.session.currentUser = newUser
+                    res.redirect(`/profile/${newUser.id}`)
+                })
                 .catch(err => console.log(err))
         })
 })
@@ -67,7 +70,7 @@ router.post('/login', (req, res, next) => {
             }
 
             req.session.currentUser = theUser               // inicio de sesión
-            res.render('profile/profile', { successMsg: '¡Bienvenid@,' + theUser.username + '!' })
+            res.redirect(`/profile/${theUser.id}`)
         })
         .catch(err => console.log(err))
 })
@@ -75,15 +78,6 @@ router.post('/login', (req, res, next) => {
 //SIGN OUT - GET
 router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("/")))
 
-//PROFILE
-router.get('/profile/:id', (req, res) => {
-    const userId = req.params.id
-    User
-        .findById(userId)
-        .then(theUser => res.render('profile/profile', theUser))
-        .catch(err => console.log(err))
-    
-})
 
 //ALL TRAVEL
 router.get('/all-travels', (req, res) => res.render('travel/all-travels'))
@@ -101,4 +95,15 @@ router.use((req, res, next) => req.session.currentUser ? next() : res.render('pr
 // todas las rutas a continuación serán privadas
 router.get('/profile', (req, res) => res.render('profile/profile', req.session.currentUser))
 
+//PROFILE
+router.get('/profile/:user_id', (req, res) => {
+    console.log("HOla")
+    const userId = req.params.user_id
+    console.log(userId)
+    User
+        .findById(userId)
+        .then(theUser => res.render('profile/profile', theUser))
+        .catch(err => console.log(err))
+    
+})
 module.exports = router
