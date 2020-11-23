@@ -6,7 +6,7 @@ const travelSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'       
     },
-    departure: Date, // Como funciona? hacemos por un lado hora y por otro dias?
+    date: Date, // Como funciona? hacemos por un lado hora y por otro dias?
     availablePlaces: Number,
     originCity: String,
     departureLocation: {                 // Como hacemos esto?
