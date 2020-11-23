@@ -4,6 +4,7 @@ const bcryptjs = require("bcryptjs")
 const bcryptjsSalt = 10
 
 const User = require('./../models/user.model')
+const Travel = require('./../models/travel.model')
 const app = require('../app')
 
 
@@ -40,6 +41,7 @@ router.post('/signup', (req, res) => {
                 })
                 .catch(err => console.log(err))
         })
+        .catch(err => console.log(err))
 })
 
 //LOGIN - GET
@@ -78,32 +80,51 @@ router.post('/login', (req, res, next) => {
 //SIGN OUT - GET
 router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("/")))
 
-
 //ALL TRAVEL
 router.get('/all-travels', (req, res) => res.render('travel/all-travels'))
 
-//NEW-TRAVEL
-router.get('/new-travel', (req, res) => res.render('travel/new-travel'))
-
 //TRAVEL DETAIL
-router.get('/travel-details', (req, res) => res.render('travel/travel-details'))
+router.get('/travel-details/:id', (req, res) => res.render('travel/travel-details'))
 
-
-/* ---------- RUTAS PROTEGIDAS DEBAJO DEL ROUTER.GET ---------- */
+/* ------------- RUTAS PROTEGIDAS ------------- */
 // custom middleware for session check
 router.use((req, res, next) => req.session.currentUser ? next() : res.render('profile/login', { errorMsg: 'Zona restringida' }))
 // todas las rutas a continuación serán privadas
 router.get('/profile', (req, res) => res.render('profile/profile', req.session.currentUser))
 
-//PROFILE
+//PROFILE - GET
 router.get('/profile/:user_id', (req, res) => {
-    console.log("HOla")
     const userId = req.params.user_id
-    console.log(userId)
     User
-        .findById(userId)
-        .then(theUser => res.render('profile/profile', theUser))
-        .catch(err => console.log(err))
+    .findById(userId)
+    .then(theUser => res.render('profile/profile', theUser))
+    .catch(err => console.log(err))
     
 })
+
+//NEW-TRAVEL - GET
+router.get('/new-travel', (req, res) => res.render('travel/new-travel'))
+
+//NEW-TRAVEL - POST
+router.post('/new-travel', (req, res, next) => {
+    const driver = req.session.currentUser._id
+    
+    const { date, availablePlaces, originCity, originlat, originlng, destinationCity, destinationlat, destinationlng} = req.body
+
+    if (date === "" || availablePlaces === "" || originCity === "" || originlat === "" || originlng === "" || destinationCity === "" || destinationCity === "" || destinationlat === "" || destinationlng === "") {
+        res.render("travel/new-travel", { errorMsg: "Rellena todos los campos" })
+        return
+    }
+
+    Travel
+        .create({ driver, date, availablePlaces, originCity, originlat, originlng, destinationCity, destinationlat, destinationlng})
+        // .then((newTravel) => res.redirect(`travel/travel-details/${newTravel._id}`))
+        .then(() => res.render("index"))
+        .catch(err => console.log(err))
+})
+
+
+
+
+
 module.exports = router

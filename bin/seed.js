@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
 const Travel = require('../models/travel.model');
-const { getMaxListeners } = require('../models/user.model');
 
 const dbName = 'proyecto-2'
 mongoose.connect(`mongodb://localhost/${dbName}`);
