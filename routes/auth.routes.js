@@ -84,7 +84,14 @@ router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("
 router.get('/all-travels', (req, res) => res.render('travel/all-travels'))
 
 //TRAVEL DETAIL
-router.get('/travel-details', (req, res) => res.render('travel/travel-details'))
+router.get('/travel-details/:travel_id', (req, res) => {
+    const travelId = req.params.travel_id
+    Travel
+    .findById(travelId)
+    .populate("driver")
+    .then(theTravel => res.render('travel/travel-details', theTravel))
+    .catch(err => console.log(err))  
+})
 
 /* ------------- RUTAS PROTEGIDAS ------------- */
 // custom middleware for session check
@@ -109,17 +116,17 @@ router.get('/new-travel', (req, res) => res.render('travel/new-travel'))
 router.post('/new-travel', (req, res, next) => {
     const driver = req.session.currentUser._id
     
-    const { date, availablePlaces, originCity, originlat, originlng, destinationCity, destinationlat, destinationlng} = req.body
+    const { date, availablePlaces, originCity, destinationCity} = req.body
 
-    if (date === "" || availablePlaces === "" || originCity === "" || originlat === "" || originlng === "" || destinationCity === "" || destinationCity === "" || destinationlat === "" || destinationlng === "") {
+    if (date === "" || availablePlaces === "" || originCity === "" || destinationCity === "" || destinationCity === "") {
         res.render("travel/new-travel", { errorMsg: "Rellena todos los campos" })
         return
     }
 
     Travel
-        .create({ driver, date, availablePlaces, originCity, originlat, originlng, destinationCity, destinationlat, destinationlng})
+        .create({ driver, date, availablePlaces, originCity, destinationCity})
         // .then((newTravel) => res.redirect(`travel/travel-details/${newTravel._id}`))
-        .then(() => res.render("index"))
+        .then(() => res.render("travel/all-travels"))
         .catch(err => console.log(err))
 })
 

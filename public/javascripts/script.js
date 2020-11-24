@@ -14,17 +14,21 @@ travelAPI
   .getTravelsList()
   .then(res => {
 
-    let allInfo = res.data
+    let allInfo = res.data.reverse()
     let InfoHtml = ""
 
     allInfo.forEach(elm => {
       InfoHtml += `<div class=\"travel-info\">
-              <div class=\"origin\">Origin City: ${elm.originCity}</div>
-              <div class=\"destination\">Destination: ${elm.destinationCity}</div>
+              <hr>
+              <div class=\"origin\">Origen: ${elm.originCity}</div>
+              <div class=\"destination\">Destino: ${elm.destinationCity}</div>
+              <div class=\"date\">Fecha y hora: ${elm.date}</div>
+              <div class=\"button\">
+                <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
+              </div>
               </div>`
     });
-        document.querySelector('.travel-container').innerHTML = InfoHtml
-
+    document.querySelector('.travel-container').innerHTML = InfoHtml // El enlace debería llevar a /travel-details:id
   })
 
 
