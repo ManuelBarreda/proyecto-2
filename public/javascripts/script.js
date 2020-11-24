@@ -1,4 +1,4 @@
-const travelAPI = new APIHandler(`http://localhost:3000/api/travels`)
+const travelAPI = new APIHandler()
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 
-
+// ALL TRAVELS
 travelAPI
 
   .getTravelsList()
@@ -16,7 +16,7 @@ travelAPI
 
     let allInfo = res.data.reverse()
     let InfoHtml = ""
-
+    console.log(allInfo)
     allInfo.forEach(elm => {
       InfoHtml += `<div class=\"travel-info\">
               <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
@@ -32,14 +32,15 @@ travelAPI
               </div>
               <div class=\"date\">Fecha y hora: ${elm.date}</div>
               </div>
+              </div>
+              <div class=\"price\">Precio: ${elm.price}€</div>
+              </div>
               <div class=\"button button-details\">
               <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
               </div>`
     });
-    document.querySelector('.travel-container').innerHTML = InfoHtml // El enlace debería llevar a /travel-details:id
+    document.querySelector('.travel-container').innerHTML = InfoHtml
+    document.querySelector('.my-travel-container').innerHTML = InfoHtml
   })
-
-
   .catch(err => console.log('HUBO UN ERROR!', err))
-
