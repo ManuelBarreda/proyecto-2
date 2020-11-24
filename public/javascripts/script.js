@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 
-
+// ALL TRAVELS
 travelAPI
 
   .getTravelsList()
@@ -16,7 +16,7 @@ travelAPI
 
     let allInfo = res.data.reverse()
     let InfoHtml = ""
-
+    console.log(allInfo)
     allInfo.forEach(elm => {
       InfoHtml += `<div class=\"travel-info\">
               <hr>
@@ -35,9 +35,7 @@ travelAPI
               </div>
               </div>`
     });
-    document.querySelector('.travel-container').innerHTML = InfoHtml // El enlace debería llevar a /travel-details:id
+    document.querySelector('.travel-container').innerHTML = InfoHtml
+    document.querySelector('.my-travel-container').innerHTML = InfoHtml
   })
-
-
   .catch(err => console.log('HUBO UN ERROR!', err))
-
