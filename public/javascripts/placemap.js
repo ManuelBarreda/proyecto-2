@@ -1,45 +1,46 @@
-let mapInstance, serviceInstance, rendererInstance
+
+let mapInstance, serviceInstance, rendererInstance, destinationCityMap, arrivalCityMap
 
 
 
-// travelAPI = new APIHandler()
+function getEventsDataFromAPI() {
 
-// travelAPI
-
-//     .getTravelsList()
-//     .then(res => {
-//         let allInfo = res.data
-//         let originPrueba = ""
-//         let destinoPrueba = ""
-
-//         allInfo.forEach(elm => {
-//             originPrueba = elm.originCity
-//             destinoPrueba = elm.destinationCity
-//         });
-//         console.log(originPrueba)
-
-//     })
+    
+    axios
+        .get('/api/travels')
+        .then(response => drawMap(response.data))
+        .catch(err => console.log('Hubo un error:', err))
+    
+    
+   
+}
 
 
 function initMap() {
 
-    drawMap()
+    getEventsDataFromAPI() 
     drawResult()
-    // getPlacesFromAPI() 
-    // drawPlaces(travels) 
+
 }
 
 
-function drawMap(){
+function drawMap(dataTravel) {
+    
 
-    mapInstance = new google.maps.Map(document.querySelector('#travelMap'), { zoom: 12, center: { lat: 40.409344, lng: - 3.709200 }})
+    let origin = dataTravel[1].originCity
+    let destiny = dataTravel[1].destinationCity
+
+    console.log(typeof origin)
+    console.log(destiny)
+    
+    mapInstance = new google.maps.Map(document.querySelector('#travelMap'))
 
     serviceInstance = new google.maps.DirectionsService
     rendererInstance = new google.maps.DirectionsRenderer
 
     const directionRequest = {
-        origin: 'Avenida de América 55, Granada',
-        destination: 'Calle Santa Ana 1, Madrid',
+        origin: origin.toString(),
+        destination: destiny.toString(),
         travelMode: 'DRIVING'
     }
 
@@ -58,46 +59,5 @@ function drawResult(route){
 
 
 
-// function getPlacesFromAPI() {
-//     axios
-//         .get('/api/travel-details')
-//         .then(response => drawPlaces(response.data))
-//         .catch(err => console.log(err))
-// }
-
-
 initMap();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function drawPlaces(travels) {
-
-//     travels.forEach(elm => {
-
-//         let cityOrigin = elm.originCity
-//         let cityArrival = elm.destinationCity
-//     }),
-
-//     console.log(cityOrigin)
-// }
-        
-
- 
-
-        // new google.maps.Marker({
-        //     map: mapInstance,
-        //     position,
-        //     title: elm.name
-        // })
