@@ -1,12 +1,25 @@
-<div class="container">
+<div class="container travel-details">
 
-    <h1>Route Details</h1>
-    <h3> Estos son los detalles del viaje</h3>
-    <p>{{originCity}}</p>
-    <p>{{destinationCity}}</p>
-    <p>{{availablePlaces}}</p>
+    <h2> Detalles del viaje</h2>
+    <hr>
     <p>{{date}}</p>
-    <p>{{driver.email}}</p>
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                <li><strong>Ciudad de salida: </strong>{{originCity}}</li>
+                <li><strong>Ciudad de llegada: </strong>{{destinationCity}}</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul>
+                <li><strong>Plazas disponibles: </strong>{{availablePlaces}}</li>
+                <li><strong>Precio del viaje: </strong>{{price}}€</li>
+            </ul>
+        </div>
+    </div>
+<div class="row">
+    <a href="mailto:{{driver.email}}" class="button seat-reserve">Reserva tu plaza</a>
+</div>
     <div id="travelMap"></div>
 
 </div>

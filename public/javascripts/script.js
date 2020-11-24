@@ -25,20 +25,25 @@ travelAPI
               <div class=\"origin\"><p class="origin-travel">Origen:</p><p class="cities-origin">${elm.originCity}</p></div>
               </div>
               <div class=\"col-md-4\">
-              <img class="travel-car" src="./images/icon_car.jpg" alt="car">
+              <img class="travel-car" src="./images/car_icon.png" alt="car">
               </div>
               <div class=\"col-md-4\">
               <div class=\"destination\"><p class="destination-travel">Destino:</p><p class="cities-destination">${elm.destinationCity}</p></div>
+              <div class=\"places\">${elm.availablePlaces} plazas disponibles</div>
               </div>
-              <div class=\"date\">Fecha y hora: ${elm.date}</div>
               </div>
+              <div class=\"row\">
+              <div class=\"date\">Fecha y hora: ${elm.date}
               </div>
               <div class=\"price\">Precio: ${elm.price}€</div>
+              </div>
               </div>
               <div class=\"button button-details\">
               <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
+              </div>
               </div>`
+      
     });
     document.querySelector('.travel-container').innerHTML = InfoHtml
     document.querySelector('.my-travel-container').innerHTML = InfoHtml
