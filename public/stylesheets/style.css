@@ -38,14 +38,14 @@ p {
 
 .main-title {
   font-family: "ADAM.CG PRO";
-  opacity: 0.8;
   position: relative;
   color: black;
   top: -310px;
   text-align: center;
   font-size: 400px;
   font-weight: 500px;
-  font-weight: 10px; }
+  font-weight: 10px;
+  background-color: white; }
 
 .title-one {
   letter-spacing: .2em; }
@@ -89,17 +89,6 @@ p {
   margin-top: 40px;
   width: 50%; }
 
-.login {
-  margin: 80px auto 150px; }
-
-.user-image {
-  width: 70%;
-  margin-bottom: 60px;
-  border-radius: 10% 0; }
-
-.text-user strong {
-  font-weight: bold; }
-
 .footer-style {
   margin-top: 40px;
   padding-top: 50px;
@@ -126,5 +115,30 @@ footer .footer-below {
 #travelMap {
   background-color: red;
   height: 400px; }
+
+.login {
+  margin: 80px auto 150px; }
+
+.user-image {
+  width: 70%;
+  margin-bottom: 60px;
+  border-radius: 10% 0; }
+
+.text-user strong {
+  font-weight: bold; }
+
+.travel-info {
+  background: #f8f9fa;
+  background: -moz-linear-gradient(left, #f8f9fa 0%, #f8f9fa 7%, #f8f9fa 9%, #f6f6f6 63%, white 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #f8f9fa), color-stop(7%, #f8f9fa), color-stop(9%, #f8f9fa), color-stop(63%, #f6f6f6), color-stop(100%, white));
+  background: -webkit-linear-gradient(left, #f8f9fa 0%, #f8f9fa 7%, #f8f9fa 9%, #f6f6f6 63%, white 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f9fa', endColorstr='#ffffff', GradientType=1 );
+  -webkit-box-shadow: 0px 0px 5px -2px rgba(89, 64, 89, 0.64);
+  -moz-box-shadow: 0px 0px 5px -2px rgba(89, 64, 89, 0.64);
+  box-shadow: 0px 0px 5px -2px rgba(89, 64, 89, 0.64);
+  padding: 0 40px; }
+
+.origin {
+  margin-left: 40px; }
 
 /*# sourceMappingURL=style.css.map */
