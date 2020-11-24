@@ -1,4 +1,4 @@
-const travelAPI = new APIHandler(`http://localhost:3000/api/travels`)
+const travelAPI = new APIHandler(`https://cityapp-project.herokuapp.com/api/travels`)
 
 
 document.addEventListener('DOMContentLoaded', () => {
