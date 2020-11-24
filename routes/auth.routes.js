@@ -116,15 +116,15 @@ router.get('/new-travel', (req, res) => res.render('travel/new-travel'))
 router.post('/new-travel', (req, res, next) => {
     const driver = req.session.currentUser._id
     
-    const { date, availablePlaces, originCity, destinationCity} = req.body
+    const { date, availablePlaces, originCity, destinationCity, price} = req.body
 
-    if (date === "" || availablePlaces === "" || originCity === "" || destinationCity === "" || destinationCity === "") {
+    if (date === "" || availablePlaces === "" || originCity === "" || destinationCity === "" || price === "") {
         res.render("travel/new-travel", { errorMsg: "Rellena todos los campos" })
         return
     }
 
     Travel
-        .create({ driver, date, availablePlaces, originCity, destinationCity})
+        .create({ driver, date, availablePlaces, originCity, destinationCity, price})
         // .then((newTravel) => res.redirect(`travel/travel-details/${newTravel._id}`))
         .then(() => res.render("travel/all-travels"))
         .catch(err => console.log(err))

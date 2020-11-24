@@ -3,7 +3,8 @@ class APIHandler {
     constructor() {
 
         this.axiosApp = axios.create({
-            baseURL: `https://cityapp-project.herokuapp.com/api/travels`
+            baseURL: `http://localhost:3000/api/travels`
+            // baseURL: `https://cityapp-project.herokuapp.com/api/travels`
         })
     }
 

@@ -1,4 +1,4 @@
-const travelAPI = new APIHandler(`https://cityapp-project.herokuapp.com/api/travels`)
+const travelAPI = new APIHandler()
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,6 +29,9 @@ travelAPI
               <div class=\"destination\">Destino:<br> ${elm.destinationCity}</div>
               </div>
               <div class=\"date\">Fecha y hora: ${elm.date}</div>
+              </div>
+              </div>
+              <div class=\"price\">Precio: ${elm.price}€</div>
               </div>
               <div class=\"button\">
                 <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
