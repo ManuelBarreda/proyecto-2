@@ -19,19 +19,21 @@ travelAPI
 
     allInfo.forEach(elm => {
       InfoHtml += `<div class=\"travel-info\">
-              <hr>
               <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
               <div class=\"row\">
-              <div class=\"col-md-6\">
-              <div class=\"origin\">Origen:<br> ${elm.originCity}</div>
+              <div class=\"col-md-4\">
+              <div class=\"origin\"><p class="origin-travel">Origen:</p><p class="cities-origin">${elm.originCity}</p></div>
               </div>
-              <div class=\"col-md-6\">
-              <div class=\"destination\">Destino:<br> ${elm.destinationCity}</div>
+              <div class=\"col-md-4\">
+              <img class="travel-car" src="./images/icon_car.jpg" alt="car">
+              </div>
+              <div class=\"col-md-4\">
+              <div class=\"destination\"><p class="destination-travel">Destino:</p><p class="cities-destination">${elm.destinationCity}</p></div>
               </div>
               <div class=\"date\">Fecha y hora: ${elm.date}</div>
               </div>
-              <div class=\"button\">
-                <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
+              <div class=\"button button-details\">
+              <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
               </div>`
     });
