@@ -15,8 +15,6 @@ class APIHandler {
 
     deleteOneRegister = travelId => this.axiosApp.delete(`/${travelId}`)
 
+    editTravel = (travelId, travelInfo) => this.axiosApp.put(`/edit/${travelId}`, travelInfo)
+
     }
-
-
-    // updateOneTravel = (registerId, registerInfo) => this.axiosApp.put(`/${registerId}`, registerInfo)
-    // deleteOneTravel = registerId => this.axiosApp.delete(`/${registerId}`)

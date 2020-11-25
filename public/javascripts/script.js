@@ -86,7 +86,7 @@ travelAPI
               <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
               <div class=\"button button-details\">
-              <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
+              <a href=\"/edit-travel/${elm._id}\">Editar el viaje</a>
               </div>
               </div>
               </div>`
@@ -103,20 +103,3 @@ travelAPI
 
 
 console.log(window)
-// window.addEventListener('load', () => {
-//   document.getElementById('delete-one').addEventListener('click', function (event) { // DELETE CHARACTER
-
-//     event.preventDefault()
-
-//     const travelId = document.querySelector('.delete input').value //Pasar el ID del travel
-
-//     travelAPI
-//       .deleteOneRegister(travelId)
-//       .then(() => {
-//         document.querySelector('#delete-one').style.backgroundColor = 'green'
-//         document.querySelector('.delete input').reset()
-//       })
-//       .catch(document.querySelector('.delete input').style.backgroundColor = 'red')
-
-//   })
-// })
