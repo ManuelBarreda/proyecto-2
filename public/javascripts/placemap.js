@@ -1,20 +1,24 @@
-
-let mapInstance, serviceInstance, rendererInstance, destinationCityMap, arrivalCityMap
-
-
+let mapInstance
 
 function getEventsDataFromAPI() {
 
-    
+    let dataTravel = []
+
     axios
         .get('/api/travels')
-        .then(response => drawMap(response.data))
+        .then(response => {
+            allTravels = response.data
+        })
+        .then(res => {
+            let travelID = window.location.pathname.slice(16)
+            dataTravel.push(allTravels.find(obj => obj._id === travelID))
+        })
+        .then(res => drawMap(dataTravel))
         .catch(err => console.log('Hubo un error:', err))
     
     
    
 }
-
 
 function initMap() {
 
@@ -25,19 +29,17 @@ function initMap() {
 
 
 function drawMap(dataTravel) {
+
+    let origin = dataTravel[0].originCity
+    let destiny = dataTravel[0].destinationCity
     
-
-    let origin = dataTravel[1].originCity
-    let destiny = dataTravel[1].destinationCity
-
     mapInstance = new google.maps.Map(document.querySelector('#travelMap'))
-
-    serviceInstance = new google.maps.DirectionsService
-    rendererInstance = new google.maps.DirectionsRenderer
+    
+    const serviceInstance = new google.maps.DirectionsService()
 
     const directionRequest = {
-        origin: origin.toString(),
-        destination: destiny.toString(),
+        origin: origin,
+        destination: destiny,
         travelMode: 'DRIVING'
     }
 
@@ -48,6 +50,9 @@ function drawMap(dataTravel) {
 }
 
 function drawResult(route){
+
+    
+    const rendererInstance = new google.maps.DirectionsRenderer()
 
     rendererInstance.setDirections(route)
     rendererInstance.setMap(mapInstance)
