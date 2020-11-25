@@ -1,0 +1,50 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5">
+
+            <h1>Editar viaje</h1>
+
+            <form method="POST" action="/edit-travel/{{id}}" id="editTravel">
+
+                <div class="form-group">
+                    <label>Fecha y hora de salida</label>
+                    <input type="datetime-local" class="form-control" name="date" value={{date}}>
+                </div>
+
+                <div class="form-group">
+                    <label>Nº de plazas disponibles</label>
+                    <input type="number" class="form-control" name="availablePlaces" min="1" max="10" value={{availablePlaces}}>
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección de origen</label>
+                    <input type="text" class="form-control" name="originCity" value={{originCity}}>
+                </div>
+
+                <div class="form-group">
+                    <label>Dirección de destino</label>
+                    <input type="text" class="form-control" name="destinationCity" value={{destinationCity}}>
+                </div>
+
+                <div class="form-group">
+                    <label>Precio en €</label>
+                    <input type="number" class="form-control" name="price" value={{price}}>
+                </div>
+
+                <button type="submit" class="button btn-block">Editar viaje</button>
+
+                {{#if errorMsg}}
+                <div
+                    style="background: red; color: white; text-align: center; padding: 10px; margin-top:10px; border-radius: 0 10%">
+                    {{errorMsg}}</div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+
+
+</div>

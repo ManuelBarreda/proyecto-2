@@ -13,5 +13,8 @@ class APIHandler {
 
     getTravelbyDriver = () => this.axiosApp.get(`/user-travel`)
 
-    }
+    deleteOneRegister = travelId => this.axiosApp.delete(`/${travelId}`)
 
+    editTravel = (travelId, travelInfo) => this.axiosApp.put(`/edit/${travelId}`, travelInfo)
+
+    }

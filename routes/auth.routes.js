@@ -134,18 +134,47 @@ router.post('/new-travel', (req, res, next) => {
 
 // DELETE TRAVEL
 router.get('/delete/:travel_id', (req, res) => {
-
+    
     const travelID = req.params.travel_id
     console.log(travelID)
-
-
+    
+    
     Travel
-        .findByIdAndDelete(travelID)
-        .then(() => res.render('profile/profile'))
-        .catch(err => console.log(err))
+    .findByIdAndDelete(travelID)
+    .then(() => res.render('profile/profile'))
+    .catch(err => console.log(err))
 })
 
 
+//EDIT-TRAVEL - GET
+router.get('/edit-travel/:travel_id', (req, res) => {
+    const travelId = req.params.travel_id
+    console.log(travelId)
+    Travel
+    .findById(travelId)
+    .then(theTravel => res.render('travel/edit-travel', theTravel))
+    .catch(err => console.log(err))
+    
+})
 
+//EDIT-TRAVEL - POST
+router.post('/edit-travel/:travel_id', (req, res, next) => {
+    const travelId = req.params.travel_id
+    console.log(travelId)
+    const { date, availablePlaces, originCity, destinationCity, price} = req.body
+
+    if (date === "" || availablePlaces === "" || originCity === "" || destinationCity === "" || price === "") {
+        res.render("travel/edit-travel", { errorMsg: "Rellena todos los campos" })
+        return
+    }
+
+    Travel
+        .findByIdAndUpdate(travelId, { date, availablePlaces, originCity, destinationCity, price})
+        .then(() => {
+            console.log(travelId)
+            res.render("profile/profile")
+        })
+        .catch(err => console.log(err))
+})
 
 module.exports = router

@@ -85,6 +85,8 @@ travelAPI
               </div>
               <div class=\"button button-delete\">
               <a id="delete-one" href="/delete/${elm._id}">Eliminar viaje</a>
+              <div class=\"button button-details\">
+              <a href=\"/edit-travel/${elm._id}\">Editar el viaje</a>
               </div>
               </div>
               </div>`
