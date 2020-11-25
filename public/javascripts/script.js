@@ -16,7 +16,6 @@ travelAPI
 
     let allInfo = res.data.reverse()
     let InfoHtml = ""
-    console.log(allInfo)
     allInfo.forEach(elm => {
       InfoHtml += `<div class=\"travel-info\">
               <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
@@ -46,6 +45,5 @@ travelAPI
       
     });
     document.querySelector('.travel-container').innerHTML = InfoHtml
-    document.querySelector('.my-travel-container').innerHTML = InfoHtml
   })
   .catch(err => console.log('HUBO UN ERROR!', err))
