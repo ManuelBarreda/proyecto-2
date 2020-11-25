@@ -45,7 +45,6 @@ travelAPI
       
     });
     document.querySelector('.travel-container').innerHTML = InfoHtml
-<<<<<<< HEAD
 
   })
   .catch(err => console.log('HUBO UN ERROR!', err))
@@ -53,7 +52,7 @@ travelAPI
 
 // let driverID = window.location.pathname.slice(9)
 
-
+// PROFILE TRAVELS
 travelAPI
 
   .getTravelbyDriver()
@@ -62,7 +61,6 @@ travelAPI
   .then(res => {
     let allInfo = res.data.reverse()
     let InfoHtml = ""
-    console.log(allInfo)
     allInfo.forEach(elm => {
       InfoHtml += `<div class=\"travel-info\">
               <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
@@ -87,13 +85,38 @@ travelAPI
               <div class=\"button button-details\">
               <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
+              <div class=\"button button-details\">
+              <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
+              </div>
               </div>
               </div>`
 
     });
 
     document.querySelector('.my-travel-container').innerHTML = InfoHtml
-=======
->>>>>>> 91d3e91ca07ab95e4cef79a43f1fb5df6371dffc
   })
   .catch(err => console.log('HUBO UN ERROR!', err))
+
+
+
+
+
+
+console.log(window)
+// window.addEventListener('load', () => {
+//   document.getElementById('delete-one').addEventListener('click', function (event) { // DELETE CHARACTER
+
+//     event.preventDefault()
+
+//     const travelId = document.querySelector('.delete input').value //Pasar el ID del travel
+
+//     travelAPI
+//       .deleteOneRegister(travelId)
+//       .then(() => {
+//         document.querySelector('#delete-one').style.backgroundColor = 'green'
+//         document.querySelector('.delete input').reset()
+//       })
+//       .catch(document.querySelector('.delete input').style.backgroundColor = 'red')
+
+//   })
+// })
