@@ -132,6 +132,19 @@ router.post('/new-travel', (req, res, next) => {
 })
 
 
+// DELETE TRAVEL
+router.get('/delete/:travel_id', (req, res) => {
+
+    const travelID = req.params.travel_id
+    console.log(travelID)
+
+
+    Travel
+        .findByIdAndDelete(travelID)
+        .then(() => res.render('profile/profile'))
+        .catch(err => console.log(err))
+})
+
 
 
 
