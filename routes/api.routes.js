@@ -6,7 +6,8 @@ const ObjectId = require('mongodb').ObjectId
 const Travel = require('./../models/travel.model')
 
 // Endpoints
-router.get('/travels', (req, res) => {
+
+router.get('/travels', (req, res, next) => {
 
     Travel
         .find()
@@ -16,7 +17,7 @@ router.get('/travels', (req, res) => {
 
 
 
-router.get('/travels/user-travel', (req, res) => {
+router.get('/travels/user-travel', (req, res, next) => {
 
     let driverID = req.session.currentUser._id
 

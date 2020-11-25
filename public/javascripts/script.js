@@ -45,7 +45,6 @@ travelAPI
       
     });
     document.querySelector('.travel-container').innerHTML = InfoHtml
-<<<<<<< HEAD
 
   })
   .catch(err => console.log('HUBO UN ERROR!', err))
@@ -93,7 +92,5 @@ travelAPI
     });
 
     document.querySelector('.my-travel-container').innerHTML = InfoHtml
-=======
->>>>>>> 91d3e91ca07ab95e4cef79a43f1fb5df6371dffc
   })
   .catch(err => console.log('HUBO UN ERROR!', err))
