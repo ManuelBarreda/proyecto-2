@@ -7,13 +7,10 @@ function getEventsDataFromAPI() {
     axios
         .get('/api/travels')
         .then(response => {
-            allTravels = response.data
-        })
-        .then(res => {
             let travelID = window.location.pathname.slice(16)
-            dataTravel.push(allTravels.find(obj => obj._id === travelID))
+            dataTravel.push(response.data.find(obj => obj._id === travelID))
+            drawMap(dataTravel)
         })
-        .then(res => drawMap(dataTravel))
         .catch(err => console.log('Hubo un error:', err))
     
     
