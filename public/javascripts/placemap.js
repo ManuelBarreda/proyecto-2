@@ -30,9 +30,6 @@ function drawMap(dataTravel) {
     let origin = dataTravel[1].originCity
     let destiny = dataTravel[1].destinationCity
 
-    console.log(typeof origin)
-    console.log(destiny)
-    
     mapInstance = new google.maps.Map(document.querySelector('#travelMap'))
 
     serviceInstance = new google.maps.DirectionsService

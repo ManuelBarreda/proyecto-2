@@ -102,6 +102,7 @@ router.get('/profile', (req, res) => res.render('profile/profile', req.session.c
 //PROFILE - GET
 router.get('/profile/:user_id', (req, res) => {
     const userId = req.params.user_id
+    console.log(userId)
     User
     .findById(userId)
     .then(theUser => res.render('profile/profile', theUser))

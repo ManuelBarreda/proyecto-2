@@ -18,6 +18,11 @@ h4{
     font-weight: bold;
   margin-top: 20px;
 }
+
+h5{
+  margin-top:40px;
+}
+
 a{
   text-decoration: none;
   color: black;
@@ -167,6 +172,8 @@ footer .footer-below {
 }
 
 
+
+
 //LOGIN.HBS
 
 .login{
@@ -178,12 +185,28 @@ footer .footer-below {
 
 .user-image{
   width: 70%;
-  margin-bottom: 60px;
-    border-radius: 10% 0;
+  margin-bottom: 20px;
+  border-radius: 10% 0;
+}
+
+.text-user{
+  margin-top: 30px;
+  font-size: 1.2em;
 }
 
 .text-user strong{
   font-weight: bold;
+}
+
+
+.button-image{
+   display: block; 
+   margin-bottom:10px; 
+   text-decoration: underline;
+}
+
+.clasificacion{
+  align-items: center;
 }
 
 
@@ -277,3 +300,4 @@ align-items: center;
 .travel-details li{
   font-size: 1.2em;
 }
+
