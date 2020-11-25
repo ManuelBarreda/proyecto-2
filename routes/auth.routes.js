@@ -110,6 +110,37 @@ router.get('/profile/:user_id', (req, res) => {
     
 })
 
+// EDIT-PROFILE GET
+
+router.get('/edit-profile/:id', (req, res) => {
+
+    const userID = req.params.id
+
+    User
+        .findById(userID)
+        .then(theUser => res.render('profile/edit-profile', theUser))
+        .catch(err => console.log(err))
+
+})
+
+// EDIT-PROFILE POST
+
+
+router.post('/edit-profile', (req, res) => {
+
+    const userID = req.params.id
+    console.log(userID)
+
+    const { username, password, email, name, lastName, phoneNumber } = req.body
+
+    User
+        .findByIdAndUpdate(userID, { username, password, email, name, lastName, phoneNumber })
+        .then(theUser => res.redirect('/'))
+        .catch(err => console.log(err))
+})
+
+
+
 //NEW-TRAVEL - GET
 router.get('/new-travel', (req, res) => res.render('travel/new-travel'))
 
