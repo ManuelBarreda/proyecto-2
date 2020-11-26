@@ -15,7 +15,8 @@ travelAPI
       let day = date.slice(8, 10)
       let month = date.slice(5, 7)
       let hour = date.slice(11, 16)
-      
+      let year = date.slice(0,4)
+
       InfoHtml +=
           
       `<div class=\"travel-info\">
@@ -27,7 +28,7 @@ travelAPI
             <div class=\"col-md-10\">
 
              
-              <div>Fecha: ${day} - ${month}</div>
+              <div>Fecha: ${day} - ${month} - ${year}</div>
           
       </div>
 
@@ -49,7 +50,7 @@ travelAPI
 
                 <div class=\"col-md-4\">
 
-                  <img class="travel-car" src="./images/car_icon.png" alt="car">
+                  <img class="travel-car" src="../../images/car_icon.png" alt="car">
 
                 </div>
 
@@ -97,6 +98,7 @@ travelAPI
       let day = date.slice(8, 10)
       let month = date.slice(5, 7)
       let hour = date.slice(11, 16)
+      let year = date.slice(0,4)
 
       InfoHtml += 
         
@@ -113,7 +115,7 @@ travelAPI
                 </div>
              
                 <div class=\"col-md-4\">
-                     <img class="travel-car" src="../images/car_icon.png" alt="car">
+                     <img class="travel-car" src="../../images/car_icon.png" alt="car">
                 </div>
 
                 <div class=\"col-md-4\">
@@ -127,7 +129,7 @@ travelAPI
                     <div class=\"col-md-10\">
 
 
-                      <div class=\"date\">Fecha: ${day} - ${month}</div>
+                      <div class=\"date\">Fecha: ${day} - ${month} - ${year}</div>
                   
               </div>
 

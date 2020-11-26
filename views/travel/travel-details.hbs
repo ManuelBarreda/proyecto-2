@@ -5,19 +5,19 @@
     <div class="row">
         <div class="col-md-6">
             <ul>
-                <li><strong>Ciudad de salida: </strong>{{theTravel.originCity}}</li>
-                <li><strong>Ciudad de llegada: </strong>{{theTravel.destinationCity}}</li>
+                <li><strong>Ciudad de salida: </strong>{{originCity}}</li>
+                <li><strong>Ciudad de llegada: </strong>{{destinationCity}}</li>
             </ul>
         </div>
         <div class="col-md-6">
             <ul>
-                <li><strong>Plazas disponibles: </strong>{{theTravel.availablePlaces}}</li>
-                <li><strong>Precio del viaje: </strong>{{theTravel.price}}€</li>
+                <li><strong>Plazas disponibles: </strong>{{availablePlaces}}</li>
+                <li><strong>Precio del viaje: </strong>{{price}}€</li>
             </ul>
         </div>
     </div>
 <div class="row">
-    <a href="mailto:{{theTravel.driver.email}}" class="button seat-reserve">Reserva tu plaza</a>
+    <a href="mailto:{{driver.email}}" class="button seat-reserve">Reserva tu plaza</a>
 </div>
     <div id="travelMap"></div>
 
