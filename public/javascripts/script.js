@@ -1,13 +1,6 @@
 const travelAPI = new APIHandler()
 
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  console.log('IronGenerator JS imported successfully!');
-
-}, false);
-
-
 // ALL TRAVELS
 travelAPI
 
@@ -17,14 +10,38 @@ travelAPI
     let allInfo = res.data.reverse()
     let InfoHtml = ""
     allInfo.forEach(elm => {
-      InfoHtml += 
-  
+      
+      
+      let date = elm.date
+      let day = date.slice(8, 10)
+      let month = date.slice(5, 7)
+      let hour = date.slice(11, 16)
+      
+      InfoHtml +=
+          
       `<div class=\"travel-info\">
+      
+      <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
+     
+      <div class=\"row\ date">
 
-              <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
+            <div class=\"col-md-10\">
 
-              <div class=\"row\">
+             
+              <div>Fecha: ${day} - ${month}</div>
+          
+      </div>
 
+         <div class=\"col-md-2\">
+
+              <div class=\"hour\">Hora ${hour}</div>
+
+        </div>    
+       
+        </div>    
+      
+      <div class=\"row\">
+      
                 <div class=\"col-md-4\">
 
                   <div class=\"origin\"><p class="origin-travel">Origen:</p><p class="cities-origin">${elm.originCity}</p></div>
@@ -47,23 +64,20 @@ travelAPI
 
               </div>
 
-              <div class=\"row\">
 
-                  <div class=\"date\">Fecha y hora: ${elm.date}</div>
+      
+                     <div class=\"price\">Precio: ${elm.price}€</div>
 
-                  <div class=\"price\">Precio: ${elm.price}€</div>
+                </div>
 
-              </div>
 
-              </div>
+                <div class=\"button button-details\">
 
-                  <div class=\"button button-details\">
+                <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
 
-                  <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a></div>
+          </div>
 
-              </div>
-
-    </div>`
+    `
       
     });
     document.querySelector('.travel-container').innerHTML = InfoHtml
@@ -82,7 +96,14 @@ travelAPI
     let allInfo = res.data.reverse()
     let InfoHtml = ""
     allInfo.forEach(elm => {
+      let date = elm.date
+      let day = date.slice(8, 10)
+      let month = date.slice(5, 7)
+      let hour = date.slice(11, 16)
+
       InfoHtml += 
+        
+
       
       `<div class=\"travel-info\">
               
@@ -100,18 +121,28 @@ travelAPI
 
                 <div class=\"col-md-4\">
                      <div class=\"destination\"><p class="destination-travel">Destino:</p><p class="cities-destination">${elm.destinationCity}</p></div>
-                     <div class=\"places\">${elm.availablePlaces} plazas disponibles</div>
+                     <div class=\"places\">Tienes ${elm.availablePlaces} plaza disponible</div>
                 </div>
             </div>
 
-            <div class=\"row\">
+                     <div class=\"row\ date-user">
 
-                 <div class=\"date\">Fecha y hora: ${elm.date}</div>
-                 <div class=\"price\">Precio: ${elm.price}€</div>
+                    <div class=\"col-md-10\">
 
-            </div>
 
-            <div class=\"row\">
+                      <div class=\"date\">Fecha: ${day} - ${month}</div>
+                  
+              </div>
+
+                 <div class=\"col-md-2\">
+
+                      <div class=\"hour\">Hora ${hour}</div>
+
+                </div>    
+                 </div>    
+                 </div>
+
+            <div class=\"row\ travel-user" >
 
               <div class=\"col-md-4\">
 
@@ -132,8 +163,7 @@ travelAPI
               <a href=\"/edit-travel/${elm._id}\">Editar el viaje</a>
               </div>
 
-            </div>
-      </div>`
+            </div>`
 
     });
 

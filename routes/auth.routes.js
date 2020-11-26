@@ -89,7 +89,7 @@ router.get('/travel-details/:travel_id', (req, res) => {
     Travel
     .findById(travelId)
     .populate("driver")
-    .then(theTravel => res.render('travel/travel-details', theTravel))
+    .then(theTravel => res.render('travel/travel-details', { theTravel, user : req.user }))
     .catch(err => console.log(err))  
 })
 
@@ -112,9 +112,9 @@ router.get('/profile/:user_id', (req, res) => {
 
 // EDIT-PROFILE GET
 
-router.get('/edit-profile/:id', (req, res) => {
+router.get('/edit-profile/:user_id', (req, res) => {
 
-    const userID = req.params.id
+    const userID = req.params.user_id
 
     User
         .findById(userID)
@@ -126,19 +126,18 @@ router.get('/edit-profile/:id', (req, res) => {
 // EDIT-PROFILE POST
 
 
-router.post('/edit-profile', (req, res) => {
+router.post('/edit-profile/:user_id', (req, res) => {
 
-    const userID = req.params.id
-    console.log(userID)
+    const userID = req.params.user_id
 
     const { username, password, email, name, lastName, phoneNumber } = req.body
 
     User
         .findByIdAndUpdate(userID, { username, password, email, name, lastName, phoneNumber })
-        .then(theUser => res.redirect('/'))
+        .then(theUser => res.render('profile/edit-profile', theUser))
+        .then(() => res.redirect(`/profile/${userID}`))
         .catch(err => console.log(err))
 })
-
 
 
 //NEW-TRAVEL - GET
