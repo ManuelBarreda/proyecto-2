@@ -8,15 +8,11 @@ function getEventsDataFromAPI() {
         .get('/api/travels')
         .then(response => {
             let travelID = window.location.pathname.slice(23)
-            console.log(travelID)
             dataTravel.push(response.data.find(obj => obj._id === travelID))
-            console.log(dataTravel)
             drawMap(dataTravel)
         })
-        .catch(err => console.log('Hubo un error:', err))
-    
-    
-   
+        .catch(err => new Error(err))
+  
 }
 
 function initMap() {
@@ -25,7 +21,6 @@ function initMap() {
     drawResult()
 
 }
-
 
 function drawMap(dataTravel) {
 
@@ -41,11 +36,12 @@ function drawMap(dataTravel) {
         destination: destiny,
         travelMode: 'DRIVING'
     }
-    console.log(directionRequest)
+
     serviceInstance.route(
         directionRequest,
         route => drawResult(route)
     )
+
 }
 
 function drawResult(route){
@@ -57,7 +53,4 @@ function drawResult(route){
 
 }
 
-
-
 initMap();
-

@@ -1,45 +1,40 @@
 <div class="container">
-{{#if successMsg}}
-<div style="background: #F8F9FA;; color: black; font-weight: bold; font-size: 20px; text-align: center; padding: 10px; margin-top:10px">{{successMsg}}</div>
-{{/if}}
-<h1 style= "text-decoration: underline">Este es tu área personal, {{name}}</h1>
+    {{#if successMsg}}
+    <div style="background: #F8F9FA;; color: black; font-weight: bold; font-size: 20px; text-align: center; padding: 10px; margin-top:10px">{{successMsg}}</div>
+    {{/if}}
+    <h1 style= "text-decoration: underline">Este es tu área personal, {{name}}</h1>
 
-<div class="row">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://icon-library.com/images/user-icon-silhouette/user-icon-silhouette-10.jpg" alt="user_image" class="user-image">
+            <a href="#" class= "button-image">Cambiar imagen de perfil</a>
+        </div>
 
-<div class="col-md-6">
+        <div class="col-md-6 text-user">
 
-      <img src="https://icon-library.com/images/user-icon-silhouette/user-icon-silhouette-10.jpg" alt="user_image" class="user-image">
-      <a href="#" class= "button-image">Cambiar imagen de perfil</a>
+            <p><strong>Usuario: </strong> {{username}}</p>
+            <p> <strong>Nombre: </strong>{{name}} {{lastName}}</p>
+            <p> <strong>Email de contacto: </strong>{{email}}</p>
+            <p> <strong>Número de contacto: </strong>{{phoneNumber}}</p>
 
-</div>
+            <h5> Valoración como usuario</h5>
+            
+            <form>
+                <p class="clasificacion">
+                <label for="radio1">★</label>
+                <label for="radio2">★</label>
+                <label for="radio3">★</label>
+                <label for="radio4">★</label>
+                <label for="radio5">★</label>
+                </p>
+            </form>
 
-<div class="col-md-6 text-user">
+            <a href="/user/edit-profile/{{id}}" style="text-decoration:underline; color:blue;">Editar perfil</a>
 
-    <p><strong>Usuario: </strong> {{username}}</p>
-    <p> <strong>Nombre: </strong>{{name}} {{lastName}}</p>
-    <p> <strong>Email de contacto: </strong>{{email}}</p>
-    <p> <strong>Número de contacto: </strong>{{phoneNumber}}</p>
+        </div>
+    </div>
 
-    <h5> Valoración como usuario</h5>
-<form>
-    <p class="clasificacion">
-    <label for="radio1">★</label>
-    <label for="radio2">★</label>
-    <label for="radio3">★</label>
-    <label for="radio4">★</label>
-    <label for="radio5">★</label>
-    </p>
-</form>
+    <h3>Estos son tus viajes publicados</h3>
 
-<a href="/user/edit-profile/{{id}}" style="text-decoration:underline; color:blue;" >Editar perfil</a>
-
-</div>
-
-
-</div>
-<h3>Estos son tus viajes publicados</h3>
-
-
-
-<div class="my-travel-container"></div>
+    <div class="my-travel-container"></div>
 </div>

@@ -1,16 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-const flash = require('connect-flash')
 const bcryptjs = require("bcryptjs")
 const bcryptjsSalt = 10
 
 const User = require('./../models/user.model')
 
-//SIGN UP - GET
+// SIGN UP - GET
 router.get('/signup', (req, res) => res.render('profile/signup'))
 
-//SIGN UP - POST
+// SIGN UP - POST
 router.post('/signup', (req, res) => {
 
     const { username, password, email, name, lastName, phoneNumber } = req.body
@@ -33,20 +32,19 @@ router.post('/signup', (req, res) => {
 
             User
                 .create({ username, password: hashPass, email, name, lastName, phoneNumber })
-                // console.log(User) 
                 .then((newUser) => {
                     req.session.currentUser = newUser
                     res.redirect(`/user/profile/${newUser.id}`)
                 })
-                .catch(err => console.log(err))
+                .catch(err => new Error(err))
         })
-        .catch(err => console.log(err))
+        .catch(err => new Error(err))
 })
 
-//LOGIN - GET
+// LOGIN - GET
 router.get('/login', (req, res) => res.render('profile/login'))
 
-//LOGIN - POST
+// LOGIN - POST
 router.post('/login', (req, res, next) => {
 
     const { username, password } = req.body
@@ -70,13 +68,13 @@ router.post('/login', (req, res, next) => {
                 return
             }
 
-            req.session.currentUser = theUser               // inicio de sesión
+            req.session.currentUser = theUser
             res.redirect(`/user/profile/${theUser._id}`)
         })
-        .catch(err => console.log(err))
+        .catch(err => new Error(err))
 })
 
-//SIGN OUT - GET
+// SIGN OUT - GET
 router.get('/signout', (req, res) => req.session.destroy((err) => res.redirect("/")))
 
 module.exports = router
