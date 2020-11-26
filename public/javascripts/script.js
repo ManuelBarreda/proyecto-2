@@ -1,13 +1,5 @@
 const travelAPI = new APIHandler()
 
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  console.log('IronGenerator JS imported successfully!');
-
-}, false);
-
-
 // ALL TRAVELS
 travelAPI
 
@@ -38,7 +30,7 @@ travelAPI
               </div>
               </div>
               <div class=\"button button-details\">
-              <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
+              <a href=\"/travel/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
               </div>
               </div>`
@@ -54,8 +46,6 @@ travelAPI
 travelAPI
 
   .getTravelbyDriver()
-
-
   .then(res => {
     let allInfo = res.data.reverse()
     let InfoHtml = ""
@@ -81,12 +71,12 @@ travelAPI
               </div>
               </div>
               <div class=\"button button-details\">
-              <a href=\"/travel-details/${elm._id}\">Detalles del viaje</a>
+              <a href=\"/travel/travel-details/${elm._id}\">Detalles del viaje</a>
               </div>
               <div class=\"button button-delete\">
-              <a id="delete-one" href="/delete/${elm._id}">Eliminar viaje</a>
+              <a id="delete-one" href="/travel/delete/${elm._id}">Eliminar viaje</a>
               <div class=\"button button-details\">
-              <a href=\"/edit-travel/${elm._id}\">Editar el viaje</a>
+              <a href=\"/travel/edit-travel/${elm._id}\">Editar el viaje</a>
               </div>
               </div>
               </div>`
