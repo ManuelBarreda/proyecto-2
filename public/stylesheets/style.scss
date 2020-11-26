@@ -9,9 +9,20 @@ img{
   width: 100%;
 }
 
-h1, h2, h3{
+h1{
+  letter-spacing: 0.13em;
+  font-family: "Montserrat";
+  font-size: 0.2em;
+  margin: 30px 0;
+}
+
+h2{
   font-weight: bold;
   margin: 30px 0;
+}
+
+h3{
+  font-weight: bold;
 }
 
 h4{
@@ -55,33 +66,19 @@ a{
 
 .main-title{
 
-  font-family: "ADAM.CG PRO";
-  text-shadow: 2px 4px #b8e0ca;
+  font-family: "Montserrat";
+  text-shadow: 2px 2px #b8e0ca;
   position: relative;
   color: black;
   top: -310px;
+  height: 120px;
+  font-size: 1.5em;
   text-align: center;
   font-size: 400px;
   font-weight: 500px;
-  font-weight: 10px;
   background-color: white;
 
 
-}
-
-//PRIMER CONTENEDOR INDEX.HBS
-
-.title-one{
-    letter-spacing: .2em;
-}
-
-.first-row{
-  margin-top: 70px;
-    align-items: center;
-}
-
-.first-text{
-    padding: 50px 0;
 }
 
 
@@ -100,6 +97,13 @@ a{
   border-radius: 10% 0;
 
 }
+
+//PRIMER CONTENEDOR INDEX.HBS
+
+.first-row{
+    margin-top: 70px;
+}
+
 
 //SEGUNDO CONTENEDOR INDEX.HBS
 
@@ -122,6 +126,7 @@ a{
 
 
 .background-icons{
+  margin-top: 30px;
   background-color: #F8F9FA;
 }
 
@@ -212,9 +217,10 @@ footer .footer-below {
 //VISTA ALL-TRAVELS
 
 .travel-info{
-background-color: #F8F9FA;;
+background-color: #F8F9FA;
 padding: 10px 40px 40px 40px;
 border-radius: 10% 0;
+height: 350px;
 border: 0.2px solid black;
 align-items: center;
 
@@ -226,7 +232,6 @@ align-items: center;
   font-size: 1.6em;
   padding-bottom: 10px;
 }
-
 
 
 .travel-car{
@@ -266,55 +271,66 @@ align-items: center;
 }
 
 .places{
-  position: relative;
-  font-size: 1.1em;
+
+  font-size: 1.3em;
   font-weight: bolder;
-  padding-left: 10px;
-  bottom: 140px;
-  left: 164px;
-  width: 200px;
-  background-color: white;
-  border-top: 1px dashed black;
-  border-bottom: 1px dashed black;
-  border-left: 1px dashed black;
+  margin: 20px 20px 0 60px;
+  text-decoration: underline;
+
+
 }
 
 .price{
   position: relative;
   width: 200px;
-  left: 870px;
-  font-size: 1.2em;
+  height: 62px;
+  left: 868px;
+  font-size: 1.8em;
   font-weight: bold;
-  bottom: 130px;
-  padding-left: 20px;
+  bottom: 290px;
+  font-style: oblique;
+ padding-left: 60px;
+    padding-top: 10px;
   background-color: white;
-  border-top: 1px dashed black;
-  border-bottom: 1px dashed black;
-  border-left: 1px dashed black;
+  border-top: 0.5px solid black;
+  border-bottom: 2px dashed black;
+  border-left: 2px dashed black;
 
 }
 
 .date{
   font-weight: bold;
   font-size: 1.4em;
+  margin: 20px auto;
 
 }
 
 
 //DETALLES DEL VIAJE
 
+
+.title-traveluser{
+  margin-bottom: 30px;
+}
+
+
+
 .travel-details li{
   font-size: 1.2em;
 }
 
 .date-user{
-  margin-top: -40px;
-  margin-bottom: 30px;
-  font-size: 1.2em;
+
+  margin: 30px 0 20px 70px;
+      padding-left: 70px;
+  margin-left: 40px;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 
 .travel-user{
     margin:-30px auto 0;
+    margin-bottom: 50px;
     text-decoration: underline;
     background-color: white;
     height: 50px;
@@ -324,4 +340,9 @@ align-items: center;
     border: 1px solid;
     line-height: 2.2;
     border-radius: 10% 0;
+}
+
+.places-userview{
+  display: flex;
+  justify-content: space-around;
 }

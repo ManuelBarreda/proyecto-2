@@ -9,17 +9,17 @@ travelAPI
     let allInfo = res.data.reverse()
     let InfoHtml = ""
     allInfo.forEach(elm => {
-      
-      
+
+
       let date = elm.date
       let day = date.slice(8, 10)
       let month = date.slice(5, 7)
       let hour = date.slice(11, 16)
-      let year = date.slice(0,4)
+      let year = date.slice(0, 4)
 
       InfoHtml +=
-          
-      `<div class=\"travel-info\">
+
+        `<div class=\"travel-info\">
       
       <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
      
@@ -58,15 +58,23 @@ travelAPI
 
                   <div class=\"destination\"><p class="destination-travel">Destino:</p><p class="cities-destination">${elm.destinationCity}</p></div>
 
+                  
+                  </div>
+                            <div class=\"col-md-4\"></div>
+
+                            <div class=\"col-md-4\">
+
                   <div class=\"places\">${elm.availablePlaces} plazas disponibles</div>
 
-                </div>
+                         </div>
+
+                            <div class=\"col-md-4\"></div>
 
               </div>
 
 
       
-                     <div class=\"price\">Precio: ${elm.price}€</div>
+                     <div class=\"price\">${elm.price}€</div>
 
                 </div>
 
@@ -78,7 +86,7 @@ travelAPI
           </div>
 
     `
-      
+
     });
     document.querySelector('.travel-container').innerHTML = InfoHtml
 
@@ -98,15 +106,15 @@ travelAPI
       let day = date.slice(8, 10)
       let month = date.slice(5, 7)
       let hour = date.slice(11, 16)
-      let year = date.slice(0,4)
+      let year = date.slice(0, 4)
 
-      InfoHtml += 
-        
+      InfoHtml +=
 
-      
-      `<div class=\"travel-info\">
+
+
+        `<div class=\"travel-info\">
               
-      <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
+      <div class=\"title-traveluser\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
               
             <div class=\"row\">
               
@@ -120,26 +128,34 @@ travelAPI
 
                 <div class=\"col-md-4\">
                      <div class=\"destination\"><p class="destination-travel">Destino:</p><p class="cities-destination">${elm.destinationCity}</p></div>
-                     <div class=\"places\">Tienes ${elm.availablePlaces} plaza disponible</div>
-                </div>
-            </div>
-
+                     </div>
+                     </div>
+                     
                      <div class=\"row\ date-user">
+                     
+                     <div class=\"col-md-3\"></div>
+                     
+                     <div class=\"col-md-3\">
+                     
+                     <div>Fecha: ${day} - ${month} - ${year}</div>
+                     
+                     </div>
+                     
+                     <div class=\"col-md-3\">
+                     
+                     <div class=\"hour\">Hora ${hour}</div>
+                     
+                     </div>
+                     
+                     <div class=\"col-md-3\"></div>
+                     
+                     
+                     </div>    
+                     
+                     <div class=\"places-userview\">Te quedan ${elm.availablePlaces} plazas disponibles</div>
+             </div>    
 
-                    <div class=\"col-md-10\">
-
-
-                      <div class=\"date\">Fecha: ${day} - ${month} - ${year}</div>
-                  
-              </div>
-
-                 <div class=\"col-md-2\">
-
-                      <div class=\"hour\">Hora ${hour}</div>
-
-                </div>    
-                 </div>    
-                 </div>
+          </div>
 
             <div class=\"row\ travel-user" >
 
