@@ -8,7 +8,6 @@ class APIHandler {
         })
     }
 
-
     getTravelsList = () => this.axiosApp.get('/')
 
     getTravelbyDriver = () => this.axiosApp.get(`/user-travel`)
@@ -17,4 +16,4 @@ class APIHandler {
 
     editTravel = (travelId, travelInfo) => this.axiosApp.put(`/edit/${travelId}`, travelInfo)
 
-    }
+}

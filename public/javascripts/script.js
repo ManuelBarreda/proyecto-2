@@ -2,23 +2,20 @@ const travelAPI = new APIHandler()
 
 // ALL TRAVELS
 travelAPI
-
   .getTravelsList()
   .then(res => {
 
     let allInfo = res.data.reverse()
     let InfoHtml = ""
     allInfo.forEach(elm => {
-      
-      
+
       let date = elm.date
       let day = date.slice(8, 10)
       let month = date.slice(5, 7)
       let hour = date.slice(11, 16)
       let year = date.slice(0,4)
 
-      InfoHtml +=
-          
+      InfoHtml +=   
       `<div class=\"travel-info\">
       
       <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
@@ -75,25 +72,23 @@ travelAPI
 
                 <a href=\"/travel/travel-details/${elm._id}\">Detalles del viaje</a>
 
-          </div>
-
-    `
-      
+          </div>` 
     });
+
     document.querySelector('.travel-container').innerHTML = InfoHtml
 
   })
-  .catch(err => console.log('HUBO UN ERROR!', err))
-
+  .catch(err => new Error(err))
 
 // PROFILE TRAVELS
 travelAPI
-
   .getTravelbyDriver()
   .then(res => {
+
     let allInfo = res.data.reverse()
     let InfoHtml = ""
     allInfo.forEach(elm => {
+      
       let date = elm.date
       let day = date.slice(8, 10)
       let month = date.slice(5, 7)
@@ -101,9 +96,6 @@ travelAPI
       let year = date.slice(0,4)
 
       InfoHtml += 
-        
-
-      
       `<div class=\"travel-info\">
               
       <div class=\"title-alltravels\"><h4>${elm.originCity} - ${elm.destinationCity}</h4></div>
@@ -163,10 +155,10 @@ travelAPI
               </div>
 
             </div>`
-
     });
 
     document.querySelector('.my-travel-container').innerHTML = InfoHtml
+
   })
-  .catch(err => console.log('HUBO UN ERROR!', err))
+  .catch(err => new Error(err))
 
