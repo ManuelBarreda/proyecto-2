@@ -173,7 +173,6 @@ footer .footer-below {
 
 
 
-
 //LOGIN.HBS
 
 .login{
@@ -282,11 +281,11 @@ align-items: center;
 
 .price{
   position: relative;
-  left: 598px;
+  width: 200px;
+  left: 870px;
   font-size: 1.2em;
   font-weight: bold;
-  bottom: 120px;
-  padding-right: 80px;
+  bottom: 130px;
   padding-left: 20px;
   background-color: white;
   border-top: 1px dashed black;
@@ -295,9 +294,34 @@ align-items: center;
 
 }
 
+.date{
+  font-weight: bold;
+  font-size: 1.4em;
+
+}
+
+
 //DETALLES DEL VIAJE
 
 .travel-details li{
   font-size: 1.2em;
 }
 
+.date-user{
+  margin-top: -40px;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+}
+
+.travel-user{
+    margin:-30px auto 0;
+    text-decoration: underline;
+    background-color: white;
+    height: 50px;
+    width: 80%;
+    font-size: larger;
+    text-align: center;
+    border: 1px solid;
+    line-height: 2.2;
+    border-radius: 10% 0;
+}

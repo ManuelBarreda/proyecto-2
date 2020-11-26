@@ -20,4 +20,33 @@ router.get('/profile/:user_id', ensureAuthenticated, (req, res) => {
     
 })
 
+// EDIT-PROFILE GET
+
+router.get('/edit-profile/:user_id', ensureAuthenticated, (req, res) => {
+
+    const userID = req.params.user_id
+
+    User
+        .findById(userID)
+        .then(theUser => res.render('profile/edit-profile', theUser))
+        .catch(err => console.log(err))
+
+})
+
+// EDIT-PROFILE POST
+
+
+router.post('/edit-profile/:user_id', ensureAuthenticated, (req, res) => {
+
+    const userID = req.params.user_id
+
+    const { username, password, email, name, lastName, phoneNumber } = req.body
+
+    User
+        .findByIdAndUpdate(userID, { username, password, email, name, lastName, phoneNumber })
+        .then(theUser => res.render('profile/edit-profile', theUser))
+        .then(() => res.redirect(`/user/profile/${userID}`))
+        .catch(err => console.log(err))
+})
+
 module.exports = router
