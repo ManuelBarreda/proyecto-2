@@ -6,7 +6,7 @@ module.exports = app => {
 
     app.use(session({
         secret: "basic-auth-secret",
-        cookie: { maxAge: 60000 },
+        cookie: { maxAge: 900000 },
         store: new MongoStore({
             mongooseConnection: mongoose.connection,
             ttl: 24 * 60 * 60
