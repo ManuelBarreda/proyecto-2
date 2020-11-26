@@ -11,7 +11,6 @@ router.get('/travels', (req, res, next) => {
         .find()
         .then(travels => res.json(travels))
         .catch(err => next(err))
-        // .catch(err => new Error(err))
 })
 
 // API USER TRAVELS - GET
